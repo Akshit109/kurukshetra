@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(112, 215, 255);
+        }
+
+        .center-box {
+            width: 400px;
+            padding: 20px;
+            background: rgb(255, 255, 255);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .image-right {
+        position: absolute;
+        top: 30px;
+        right: 700px;
+        }
+    </style>
+
+    <img src="https://cdn.docplexus.com/116/3/3/069df40b-f4aa-422a-b565-cd6358561cc0__t.jpg" 
+    alt="Sign" width="150" height="150" class="image-right">
+
+
+</head>
+
+<body>
+
+    <br><br>
+
+    <div class="center-box">
+        <h1>Appointment Confirmation</h1>
+
+        <p><strong>Full Name:</strong> {{ fullname }}</p>
+        <p><strong>Age:</strong> {{ age }}</p>
+        <p><strong>Contact NO:</strong> {{ NO }}</p>
+        <p><strong>Assigned Doctor:</strong> {{ doctor }}</p>
+        <p><strong>Appointment Date:</strong> {{ appointment_date }}</p>
+        <a href="/" class="new-booking-btn">Book Another Appointment</a>
+    </div>
+
+</body>
+
+</html>

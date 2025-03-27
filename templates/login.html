@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebX Login</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(112, 215, 255);
+        }
+
+        .center-box {
+            width: 400px;
+            padding: 20px;
+            background: rgb(255, 255, 255);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        </style>
+
+</head>
+<body>
+    <div class="center-box">
+        <h2>Welcome to WebX Login page</h2>
+        <br><br>
+        <h1>WebX Login</h1>
+        <br><br>
+    <form method="POST" action="/login">
+
+        <label for="username">Username:</label>
+       
+        <input type="text" id="username" name="username" required><br><br>
+       
+        <label for="password">Password:</label>
+       
+        <input type="password" id="password" name="password" required><br><br>
+       
+        <button type="submit">Login</button>
+    </form>
+    </div>
+</body>
+</html>
