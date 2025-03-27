@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import random
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -37,8 +38,9 @@ def login():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if not session.get('logged_in'):
-    
         return redirect(url_for('login'))
+
+    today_date = datetime.today().strftime('%Y-%m-%d')  # Get today's date
 
     if request.method == 'POST':
         fullname = request.form.get('fullname', 'Anonymous')
@@ -46,20 +48,16 @@ def index():
         NO = request.form.get('NO', 'N/A')
         specialist = request.form.get('specialist')
         appointment_date = request.form.get('appointment_date')
+        email = request.form.get('email')
 
         if not specialist or specialist not in doctors:
             return "Invalid specialist selection", 400
         
         assigned_doctor = random.choice(doctors[specialist])
-    
-    
-    
-        return render_template('result.html', fullname=fullname, age=age, doctor=assigned_doctor, appointment_date=appointment_date,NO=NO)
-    
 
+        return render_template('result.html', fullname=fullname, age=age, doctor=assigned_doctor, appointment_date=appointment_date, NO=NO,email=email)
 
-
-    return render_template('index.html', doctors=doctors)
+    return render_template('index.html', doctors=doctors, today_date=today_date)
 
 @app.route('/logout')
 def logout():

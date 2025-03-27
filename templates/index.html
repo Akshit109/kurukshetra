@@ -3,68 +3,100 @@
 <head>
   
     <meta charset="UTF-8">
-  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Appointment | WebX</title>
+
+    <link href="https://fonts.google.com/share?selection.family=Comfortaa:wght@300..700|Libre+Franklin:ital,wght@0,100..900;1,100..900|Winky+Sans:ital,wght@0,300..900;1,300..900" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
     <style>
-    body {
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color:rgb(112, 215, 255);
+            background: url('https://i.pinimg.com/736x/47/c5/d6/47c5d6895fa84aefc462277d38654832.jpg') no-repeat center center/cover;
         }
 
         .center-box {
-    
-            width: 400px;
+            width: 900px;
             padding: 20px;
-            background: rgb(255, 255, 255);
+            background: rgba(255, 255, 255, 0.8);
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             text-align: center;
         }
 
+        h2 {
+            font-weight: 600;
+            color: #333;
+        }
+
+        label {
+            font-weight: 400;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 5px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
         .image-right {
             position: absolute;
             top: 20px;
-            right: 675px;
+            right: 880px;
         }
     </style>
-    <img src="https://pngfre.com/wp-content/uploads/Stethoscope-3.png" 
-    alt="doctor" width="150" height="150" class="image-right">
-    <br>
 </head>
 <body>
     <section class="appointment-container">
         <form action="/" method="POST" class="appointment-form">
             <div class="center-box">
-                <h2>Find the Doctor</h2>
+                <h2><b>Find the Doctor</b></h2>
                 <br>
-                <br>
-                <label for="fullname">Full Name:</label>
+                <label for="fullname"><b>Full Name:</b></label>
                 <input type="text" id="fullname" name="fullname" placeholder="Enter Your Name" required>
-                <br>
-                <br>
-                <label for="years">Age:</label>
-                <input type="number" id="years" name="years" placeholder="Enter Your Age" required>
-                <br>
-                <br>
-                <label for="NO">Contact No. :</label>
-                <input type="number" id="NO" name="NO" placeholder="Enter Your No" required>
-                <br>
-                <br>
-                <label for="appointment_date">Select Appointment Date:</label>
-                <input type="date" id="appointment_date" name="appointment_date" required>
-                <br>
-                <br>
+                <br><br>
 
-                        
-            
-                <label for="specialist">Type of Specialist:</label>
+                <label for="years"><b>Age:</b></label>
+                <input type="number" id="years" name="years" placeholder="Enter Your Age" min="1" required>
+                <br><br>
+
+                <label for="NO"><b>Contact No. :</b></label>
+                <input type="number" id="NO" name="NO" placeholder="Enter Your No" required>
+                <br><br>
+                <label for="fullname"><b>E-Mail:</b></label>
+                <input type="text" id="email" name="email" placeholder="Enter Your E-Mail" required>
+                <br><br>
+                <label for="appointment_date"><b>Select Appointment Date:</b></label>
+                <input type="date" id="appointment_date" name="appointment_date" required min="{{ today_date }}">
+                <br><br>
+
+                <label for="specialist"><b>Type of Specialist:</b></label>
                 <select id="specialist" name="specialist" required>
                     <option value="">-- Choose Specialist --</option>
                     <option value="oncologist">Oncologist</option>
@@ -81,16 +113,10 @@
                     <option value="surgeon">Surgeon</option>
                     <option value="neurologist">Neurologist</option>
                 </select>
-
-                <br>
-                <br>
+                <br><br>
 
                 <button class="button">BOOK</button>
             </div>
-                
-            
-             
-
         </form>
         <a href="/logout">Logout</a>
     </section>
